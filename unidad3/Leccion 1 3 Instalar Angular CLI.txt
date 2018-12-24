@@ -1,0 +1,48 @@
+Configuracion del ambiente del Angular2:
+
+Angular CLI: Es la interfaz de la linea de comandos del framewok, sirve como asistente para el desarrollo
+de aplicaciones y se encarga de preparar lo necesario para:
+crear un nuevo proyecto
+crea un elemento del framework
+crear bloques de codigo
+correr una aplicacion
+
+Para instar el asistente Angular CLI, se require tener instalado nodejs y npm, se debe abrir un interprete de comandos y se verifica las versiones de node y npm 
+con los comandos:
+node -v
+npm -v
+
+Para actualizar la version de npm:
+
+npm install npm@latest -g
+
+Si no esta instalado npm se debe instalar con el comando:
+
+npm i -g
+
+A continuacion situados en cualquier ubicacion escribimos el comando (-g abreviatura de --global)
+npm i -g @angular/cli
+
+Para verificar la version instalada de Angular CLI escribirmos el comando:
+ng --version
+
+Para acceder a comando de ayuda
+ng --help
+
+Luego creamos el directorio de trabajo o proyecto "proyectosAngular2" y situados desde dicha ruta escribmos el comando
+(ng permite acceder a todas la funciones de angular cli) que permite crear un nuevo proyecto que llamaremos
+primer-proyecto e indicamos un prefijo para todos los componentes generados a través de AngularCLI. 
+Este prefijo se usa para evitar duplicidad en los selectores únicos de componentes 
+para que no coincidan con elementos propios de HTML:
+
+ng new primer-proyecto --prefix p
+
+Luego nos situamos en la carpeta creada "primer-proyecto" y desde esta ruta, se ejecuta el proyecto con el comando
+que tabien se utiliza para crear un servidor de desarrollo para ver la aplicacion en un navegador por el puerto 4200 asi localhost:4200
+
+ng serve
+
+Sin necesidad de reinicar el servidor y refrescar el navegador se aplican los cambios que se efectuen en el proyecto este concepto de llama
+live review 
+
+
