@@ -30,7 +30,7 @@ Luego se edita el archivo "src/app/barra-superior/barra-superior.component.css" 
     height: 5em;
     background-color: #7fff00;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap; /* wrap contenedor multilinea */
     justify-content: space-between;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -71,10 +71,10 @@ Para añadir el componente creado al flujo de la aplicacion debemos añadirlo al c
 del modulo en el archivo "src/app/app.component.ts"
 
 import { Component } from '@angular/core';
-import { BarraSuperiorComponent } from './barra-superior/barra-superior.component'
+import { BarraSuperiorComponent } from './barra-superior/barra-superior.component' //esta linea se debe agregar
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', //aqui el prefijo
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
@@ -83,6 +83,8 @@ export class AppComponent {
 }
 
 Luego abrimos el archivo "src/app/app.component.html" y agregamos el siguiente codigo:
+(en el archivo src/app/barra-superior/barra-superior.component.ts se encuentra el nombre del selector
+para incluir el nombre de la etiqueta que permitira renderizar el componente)
 
 <div class="contenedor-principal">
   <barra-superior></barra-superior>
