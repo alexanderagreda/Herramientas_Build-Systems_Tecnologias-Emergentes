@@ -1,0 +1,71 @@
+Directivas: Se puede entender como un set de instrucciones especificas para los 
+elementos del DOM. Los componentes son un tipo de directivas ya que son bloques de codigo
+que le dan instrucciones a los elementos del DOM para que rendericen determinados elementos
+
+Tipos de directivas:
+
+- Directivas de atributo: Son instrucciones que remueven o añaden atributos a los elementos HTML segun sea
+necesario en la lógica de la aplicación.
+
+Ejemplo: crear un proyecto nuevo con Angular:
+
+Desde un directorio de trabajo creamos el proyecto:
+
+ng new proyecto-directiva
+
+ng serve
+
+localhost:4200
+
+Luego en el archivo proyecto-directiva/src/app/app.component.css escribimos el siguiente codigo
+
+.fondo
+{
+    background-color: green;
+}
+
+.borde
+{
+    border: 3px solid yellow;
+}
+
+En el archivo plantilla html del componente: proyecto-directiva/src/app/app.component.html creamos una directiva de atributo
+Otra directiva de atributo es [ngStyle]
+
+<h1 [ngClass]="{fondo: true, borde: false}" [ngStyle]="{color: 'white'}">
+  {{title}}
+</h1>
+
+- Directivas estructurales: Son intrucciones que alteran o modifican la estructura del DOM generalmente se encargan
+de añadir o remover elementos deacuerdo con condiciones especificas, estas directivas llevan el simbolo * como prefijo
+seguido del nombre de la directiva [*ngLF]
+
+Ejemplo en el archivo Typscript del componente proyecto-directiva/src/app/app.component.ts añado una propiedad
+a la clase llamada AppComponent
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent {
+  title = 'proyecto-directivas';
+  tituloMostrado = true;
+  
+  buttonClicked(){
+    this.tituloMostrado = !this.tituloMostrado; //negar titulo mostrado
+  }
+}
+
+En la plantilla html proyecto-directiva/src/app/app.component.html añadimos un titulo y un boton:
+
+<h1 [ngClass]="{fondo: true, borde: false}" [ngStyle]="{color: 'white'}">
+  {{title}}
+</h1>
+
+<h2 [*ngIf]="tituloMostrado">Hola soy un titulo</h2>
+<button (click)="buttonClicked()">Mostrar</button>
+

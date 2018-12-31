@@ -45,4 +45,5 @@ ng serve
 Sin necesidad de reinicar el servidor y refrescar el navegador se aplican los cambios que se efectuen en el proyecto este concepto de llama
 live review 
 
+localhost:4200
 
