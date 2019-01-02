@@ -38,7 +38,7 @@ Otra directiva de atributo es [ngStyle]
 
 - Directivas estructurales: Son intrucciones que alteran o modifican la estructura del DOM generalmente se encargan
 de añadir o remover elementos deacuerdo con condiciones especificas, estas directivas llevan el simbolo * como prefijo
-seguido del nombre de la directiva [*ngLF]
+seguido del nombre de la directiva *ngIF
 
 Ejemplo en el archivo Typscript del componente proyecto-directiva/src/app/app.component.ts añado una propiedad
 a la clase llamada AppComponent
@@ -66,6 +66,40 @@ En la plantilla html proyecto-directiva/src/app/app.component.html añadimos un t
   {{title}}
 </h1>
 
-<h2 [*ngIf]="tituloMostrado">Hola soy un titulo</h2>
+<h2 *ngIf="tituloMostrado">Hola soy un titulo</h2>
 <button (click)="buttonClicked()">Mostrar</button>
+
+Otra directiva estructural es *ngFor la cual sirve para insertar iterativamente elementos en el DOM para ello creamos
+un arreglo de nombre en el archivo proyecto-directivas/src/app/app.component.ts
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent {
+  title = 'proyecto-directivas';
+  tituloMostrado = true;
+  ListaNombres = ['Pedro', 'Juan', 'Maria', 'Jose', "Fernando"];
+  buttonClicked(){
+    this.tituloMostrado = !this.tituloMostrado; //negar a false
+  }
+}
+
+Ahora en la plantilla html crearemos una lista con el elemento ul y en el elmento li se incluira la directiva *ngFor
+
+<h1 [ngClass]="{fondo: true, borde: false}" [ngStyle]="{color: 'white'}">
+  {{title}}
+</h1>
+
+<h2 *ngIf="tituloMostrado">Hola soy un titulo</h2>
+<button (click)="buttonClicked()">Mostrar</button>
+<br />
+<ul>
+  <li *ngFor="let nombre of listaNombres">{{nombre}}</li>
+</ul>
+
 

@@ -1,0 +1,8 @@
+Desarrollo:
+
+Para crear un nuevo proyecto, se crea un directorio de trabajo y situados desde una consola
+o interprete de comando escribimos:
+
+ng new teras --prefix t
+
+Se creará el proyecto y accedemos la contenido de la carpeta tareas
