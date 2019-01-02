@@ -26,6 +26,10 @@ npm i -g @angular/cli
 Para verificar la version instalada de Angular CLI escribirmos el comando:
 ng --version
 
+Para desinstalar Angular 
+
+npm uninstall -g @angular/cli
+
 Para acceder a comando de ayuda
 ng --help
 
