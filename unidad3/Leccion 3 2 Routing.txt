@@ -17,6 +17,149 @@ ng g c barra-noticias
 
 ng g c barra-noticias
 
+Por cada componente agregado Angular-CLI crea una carpeta y cada caperta tiene un cojunto de archivos de cada componente
+lo que se debe hacer es mover los 4 archivos que contiene cada carpeta y situarlos en la carpeta raiz 
+del proyecto appRouting/src/app
+
+A continuacion modificamos la rutas de importación de los componentes en el archivo appRouting/src/app/app.module.ts
+la idea es eliminar el nombre de la carpeta en la ruta del componente porque el archivo fue movido a la carpeta raiz.
+
+Antes:
+
+import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.component';
+
+Despues
+
+import { BarraNavegacionComponent } from './barra-navegacion.component';
+
+En el archivo appRouting/src/app/app.components.ts importamos los compoentes creados
+
+import { Component } from '@angular/core';
+
+/*importar nuevos componentes*/
+import { HomeComponent } from './home.component';
+import { BarraNavegacionComponent } from './barra-navegacion.component';
+import { NoticiasComponent } from './noticias.component';
+import { PerfilComponent } from './perfil.component';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  
+}
+
+
+Al archivo appRouting/src/app/app.module.ts importamos el archivo app-routing.module.ts y quedara asi:
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { BarraNavegacionComponent } from './barra-navegacion.component';
+import { NoticiasComponent } from './noticias.component';
+import { PerfilComponent } from './perfil.component';
+import { HomeComponent } from './home.component';
+
+import { L3RoutingModule } from './app-routing.module';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    BarraNavegacionComponent,
+    NoticiasComponent,
+    PerfilComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    L3RoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+A continuacion creamos las rutas, para ello abrimos el archivo appRouting/src/app/app-routing.module.ts
+este archivo se encarga de realizar el enrutamiento de las vistas de la aplicacion
+primero nos dirigimos al arreglo "routes" definido como una constante de tipo Routes
+
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { NoticiasComponent } from './noticias.component';
+import { PerfilComponent } from './perfil.component';
+
+
+const routes: Routes = [
+  {path: '', component: HomeComponent },
+  {path: 'noticias', component: NoticiasComponent},
+  {path: 'perfil', component:PerfilComponent}
+
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+En la plantilla del archivo html del componte barra-superior y agregamos una directiva para acceder a las rutas definidas
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">App</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a [routerLink]="['']">Inicio</a></li>
+        <li><a [routerLink]="['noticias']">Noticias</a></li>
+        <li><a [routerLink]="['perfil']">Perfil</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+Luego en el archivo app.component.html definiremos la estructura principal de nuestra aplicación:
+primero creamos un contenedor principal y agregamos el componente barra de navegación, luego se debe agregar
+el espacio donde se renderizan los contenidos de cada ruta (como etiqueta html router-outlet)
+
+<div class="container">
+  <barra-navegacion></barra-navegacion>
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 
