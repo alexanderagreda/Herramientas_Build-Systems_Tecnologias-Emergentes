@@ -1,0 +1,22 @@
+Routing o enrutamiento a traves de la vistas Angular 2: Recordemos que la filosofia
+de Angular2 es crear SPA (Simple page application), es decir portales web de una sola pagina que modifica
+sus vistas a traves de JavaScript en lugar de recargar una y otra vez las paginas
+desde el servidor. La navegación entre las vistas en un SPA se realiza mediante el enrutamiento o Routing.
+
+Para entender como funciona el enrutamiento, creamos una carpeta o directorio de trabajo y situados desde ahi:
+
+ng new appRouting
+
+A continuacion creamos los componentes:
+
+ng g c barra-navegacion
+
+ng g c barra-home
+
+ng g c barra-noticias
+
+ng g c barra-noticias
+
+
+ 
+
