@@ -1,0 +1,91 @@
+Pipes: La palabra Pipe traduce tubo | es un operador que transforma los valores 
+procedentes del modelo, en la vista sin afectarlos en la lógica.
+
+Para entender con mas claridad creamos un proyecto nuevo, con una carpeta o directorio de trabajo y situados desde
+la carpeta en un interprete de comandos escribimos:
+
+ng new appTest -p t
+
+Una vez creado el proyecto incluimos una variable "variable1" en el componente creado por defecto 
+en la ruta appTest/src/app/app.component.ts, tambien podemos agregar otra variable de ejemplo
+
+import { Component } from '@angular/core';
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 't-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  variable1 = 'texto de prueba';
+  fecha = new Date(2018, 1, 3);
+}
+
+En vista o plantilla appTest/src/app/app.component.html, para usar el pipe despues del nombre de la variable
+se añade el operador de tubo | seguido de nombre del pipe, la tranformación de los pipe se realiza en la vista 
+o plantilla y no en la logica:
+
+<h1>Ejemplo de Pipe</h1>
+<p>{{variable1 | uppercase}}</p>
+<h1>Pipe con argumentos</h1>
+
+Para crear pipes personalizados ejecutamos el comando con el nombre "duplicar"
+
+ng g pipe duplicar
+
+Luego se crea un archivo appTest/src/app/duplicar.pipe.ts y se agrega la siguiente operacion "value * 2":
+
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'duplicar'
+})
+export class DuplicarPipe implements PipeTransform {
+
+  transform(value: any, args?: any): any {
+    return value * 2
+  }
+
+
+En el archivo appTest/src/app/app.component.ts agregamos una variable númerica
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 't-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  variable1 = 'texto de prueba';
+  fecha = new Date(2019, 0, 3);
+  numero = 20;
+}
+
+Luego en la plantilla appTest/src/app/app.component.html y mostramos dos veces la variable 
+numero con pipe y sin pipe 
+
+<h1>Ejemplo de Pipe</h1>
+<p>{{variable1 | uppercase}}</p>
+<h1>Pipe sin argumentos</h1>
+<p>{{fecha | date}}</p>
+<h1>Pipe con argumentos</h1>
+<p>{{fecha |date:'dd/MM/yyyy'}}</p>
+<h1>Pipe personalizado</h1>
+<p>el numero es: {{numero}} y con pipe {{numero | duplicar}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
