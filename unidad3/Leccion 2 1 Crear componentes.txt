@@ -108,8 +108,9 @@ barra-superior
 }
 
 Para ejecutar la aplicacion, situados en la carpeta del proyecto escribimos el comando:
+-o es alias de --open para abrir la aplicacion
 
-ng serve
+ng serve -o
 
 y accedemos mediante localhost:4200
 

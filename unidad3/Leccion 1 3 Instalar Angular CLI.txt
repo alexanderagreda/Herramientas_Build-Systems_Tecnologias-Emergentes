@@ -44,7 +44,7 @@ ng new primer-proyecto --prefix p
 Luego nos situamos en la carpeta creada "primer-proyecto" y desde esta ruta, se ejecuta el proyecto con el comando
 que tabien se utiliza para crear un servidor de desarrollo para ver la aplicacion en un navegador por el puerto 4200 asi localhost:4200
 
-ng serve
+ng serve -o
 
 Sin necesidad de reinicar el servidor y refrescar el navegador se aplican los cambios que se efectuen en el proyecto este concepto de llama
 live review 
