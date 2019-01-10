@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BarraSuperiorComponent } from './barra-superior/barra-superior.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ITareasPendientesComponent } from './i-tareas-pendientes/i-tareas-pendientes.component';
+import { ITareasHoyComponent } from './i-tareas-hoy/i-tareas-hoy.component';
+import { ITareasGrupoComponent } from './i-tareas-grupo/i-tareas-grupo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BarraSuperiorComponent,
-    InicioComponent
+    InicioComponent,
+    ITareasPendientesComponent,
+    ITareasHoyComponent,
+    ITareasGrupoComponent
   ],
   imports: [
     BrowserModule,

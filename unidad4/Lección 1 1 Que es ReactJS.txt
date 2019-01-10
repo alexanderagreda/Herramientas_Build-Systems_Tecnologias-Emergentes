@@ -1,0 +1,37 @@
+Web components/ Componentes WEB: Es un estandar de desarrollo web que es posible encontrar
+en algunas aplicaciones y marcara el futuro de la tendencia de desarrollo web, 
+web components, permite diseñar aplicaciones a traves de componentes conformados por diferentes
+elementos y que cuentan con su propia hojas de estilos css, codigo JavaScript y una estructura
+html bien definida, esto nos ofrece la posibilidad de reutilizar los componentes.
+
+Actualmente contamos con librerias JavaScript con que podemos implementar el estandar
+web components como lo es ReactJS.
+
+ReactJS: Es una libreria escrita en codigo en JavaScript y desarrolada por Facebook con el fin de facilitar 
+la creación de componentes web que pueden ser reutilizados ya sea en diferentes secciones
+de la aplicación o en otras aplicaciones.
+
+Caracteristicas de ReactJS:
+
+- Rendimiento y eficiencia: procesos organizados y detallados que se dan al renderizar cargar y manipular
+los componentes.
+
+-Flujo de datos unidireccional: se trata de la manera en que se pasan los datos y estados
+entre los diferentes componentes de la aplicacion
+
+- DOM virtual: Principal caracteristica, se encargar de guardar en memoria el estado
+inicial de cada uno de los compoentes que conforman nuestra apliacion y hacer un seguimiento
+a cada uno de ellos para identificar cuales presentan cambios y renderizan aquellos modificados
+
+- Compatibilidad: funcionan correctamente en los diferentes navegadores
+
+- Facil de aprender y documentacion clara y amplia en contenido
+
+- Orientada a componentes: Permite la creación de aplicaciones web basandose en el estandar
+web components lo que hace posible crear, actualizar, modificar y unir componentes facilmente
+durante los procesos de desarrollo y soporte de nuestras aplicaciones.
+
+Ej de uso de ReactJS: Facebook, instagram, netflix, HipChat.
+
+
+
