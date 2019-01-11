@@ -1,0 +1,54 @@
+Configuracion del ambiente o entorno de ejecución: creacion de aplicaciones con ReactJS
+
+Para empezar abrimos un interprete de comandos o una interfaz de linea de comandos:
+
+1. Primero se debe verificar la instalacion de NodeJS con el siguiente comando
+
+node -v
+
+2. Una vez verificado NodeJS instalamos babel de forma global con el siguiente comando:
+
+npm i -g babel
+
+3. Luego se instala babel-cli
+
+npm i -g babel-cli
+
+4. Ahora empezaremos la creacion de un nuevo proyecto usando ReactJS, para ello crearemos un 
+directorio de trabajo "appReactjs"
+
+5. Situados desde el directorio de trabajo, se debe crear el archivo package.json
+para la gestion de dependencias con npm
+
+npm init
+
+6. Una vez creado el archivo package.json, instalamos webpack
+
+npm i webpack --save
+
+7. Luego instalamos webpack-dev-server
+
+npm i webpack-dev-server --save
+
+8. Es momento de instalar React y RactDOM (--save para que sea incluido en el archivo packaje.json)
+
+npm i react --save
+
+npm i react-dom --save
+
+9. Tambien es necesario instalar los siguientes paquetes
+
+npm i babel-core
+
+npm i babel-loader
+
+npm i babel-preset-react
+
+npm i babel-preset-es2015
+
+10.Luego se deben crear los siguientes archivos para darle estructura al proyecto
+
+
+
+
+
