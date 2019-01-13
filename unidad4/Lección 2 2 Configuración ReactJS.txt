@@ -6,49 +6,164 @@ Para empezar abrimos un interprete de comandos o una interfaz de linea de comand
 
 node -v
 
-2. Una vez verificado NodeJS instalamos babel de forma global con el siguiente comando:
+CREACION DE UN NUEVO PROYECTO
 
-npm i -g babel
-
-3. Luego se instala babel-cli
-
-npm i -g babel-cli
-
-4. Ahora empezaremos la creacion de un nuevo proyecto usando ReactJS, para ello crearemos un 
+2. Ahora empezaremos la creacion de un nuevo proyecto usando ReactJS, para ello crearemos un 
 directorio de trabajo "appReactjs"
 
-5. Situados desde el directorio de trabajo, se debe crear el archivo package.json
-para la gestion de dependencias con npm
+3. Situados desde el directorio de trabajo, se debe crear el archivo package.json
+para la gestion de dependencias con npm (--yes parametro que se utiliza para no especificar datos en el archivo package.json)
 
 npm init
 
-6. Una vez creado el archivo package.json, instalamos webpack
+4. Una vez creado el archivo package.json, instalamos los modulos requeridos en nuestro proyecto
+por ejemplo webpack y un servidor de desarrollo (-D --save-dev)
 
-npm i webpack --save
+npm i webpack webpack-cli webpack-dev-server
 
-7. Luego instalamos webpack-dev-server
+5. Tambien es necesario instalar los siguientes paquetes para el correcto funcionamiento de ReactJS como babel
 
-npm i webpack-dev-server --save
+npm install @babel/core @babel/preset-env @babel/preset-react babel-loader html-webpack-plugin @babel/polyfill
 
-8. Es momento de instalar React y RactDOM (--save para que sea incluido en el archivo packaje.json)
+INSTALAR REACTJS
 
-npm i react --save
+6. Es momento de instalar React y RactDOM (--save es un parametro opcional
+se utiliza para que sea incluido en el archivo packaje.json)
 
-npm i react-dom --save
+npm i react react-dom
 
-9. Tambien es necesario instalar los siguientes paquetes
+7.Luego se deben crear los siguientes archivos para darle estructura al proyecto
 
-npm i babel-core
+- Una carpeta "src" con el codigo que va a contener el codigo origen
+- Un archivo index.html dentro del carpeta src
+- Una carpeta "app" dentro de la carpeta src 
+- Un archivo index.js dentro de la carpeta src/app
 
-npm i babel-loader
+index.html
+App.jsx
+main.js
+webpack.config.js
 
-npm i babel-preset-react
-
-npm i babel-preset-es2015
-
-10.Luego se deben crear los siguientes archivos para darle estructura al proyecto
-
-
-
+Crear en el directorio raiz un archivo webpack.config.js y un archivo .babelrc, luego abrimos el archivo webpack-config.js
+y agregar las siguiente lineas de codigo 
+para configurar webpack:
 
 
+const path = require('path');
+const HtmlwebpackPlugin = require('html-webpack-plugin');
+
+var config = {
+  entry: './main.js',
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
+  },
+  devServer: {
+    port: 3000
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      }
+    ]
+  },
+  plugins: [
+    new HtmlwebpackPlugin({
+        template: './index.html'
+    })
+  ]
+};
+
+module.exports = config;
+
+
+
+8.Luego abrimos el archivo package.json y en la propiedad scripts del objeto agregamos el siguiente codigo
+que permite que al ejecutar el comando "npm run start" se ejecute el servidor definido en la configuracion del webpack, 
+el servidor los aplique sin necesidad de recargar la pagina en el navegador:
+
+{
+  "name": "appreactjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server -d --open",
+    "build": "webpack -p"
+  },
+  "author": "AA",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
+  }
+}
+
+
+9.Ahora crearemos la estructura básica html de nuestra aplicación en el archivo index.html, añadimos en el body 
+un contenedor con un id="app" que sera la raiz de la aplicacion, luego importamos el archivo index.js que contiene 
+todo el codigo para que la aplicacion funcione:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer app con ReactJS</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+
+10. Abrimos el archivo App.jsx creamos un primer componente para visualizar en el navegador:
+
+import React from 'react';
+
+class App extends React.Component{
+    render(){
+        return(
+            <div>
+                Hola React
+              </div>
+            );
+    }
+}
+
+export default App;
+
+11. Finalmente en el archivo main.js importamos los modulos de React y ReacDOM, adicionalemte debemos importar el
+componente app creado, y por ultimo usamos el objeto ReactDOM y su metodo render() para mostrar el componente app en 
+el contenedor con id="app" en archivo html
+
+import React from 'react';
+import ReactDOM  from 'react-dom';
+import App from './App.jsx';
+
+ReactDOM.render(<App />, document.getElementById('app'));
+
+12. Para probar la apliacion ejecutamos el comando, abrimos el navegador por el  puerto 8080:
+
+npm run start 
+
+
+
+
+
+
+
+
+  

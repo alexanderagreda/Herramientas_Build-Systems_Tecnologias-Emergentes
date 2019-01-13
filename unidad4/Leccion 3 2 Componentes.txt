@@ -1,0 +1,87 @@
+Componentes en ReactJS: Es la unidad básica de una apliacion en ReacJS, cada uno de ellos contiene un porcion de las
+vistas de un proyecto.
+
+1. Para crear un nuevo componente, creamos un nuevo archivo llamado "componente1.jsx". Los componentes de ReacJS
+hacen uso de la extension jsx por lo tanto debemo añadir esta extension al archivo. En la primera parte del archivo con el que se crea un componente, se hace
+la importacion del modulo central de React, esto se hace mediante la palabra import React y luego se indica 
+el modulo react:
+
+import React from 'react'
+
+Un componete es en si una clase con una serie de metodos, por lo tanto crearemos la estructura basica de una 
+clase en ECMAScript 6, para ello es usa la palabra reservada "class" luego el nombre de la clase o componente 
+"Componente1", luego se indica que esta clase hereda de la clase React.component mediante la palabra "extends" asi:
+
+class Componente1 extends React.Component{}
+
+Ahora se debe crear un constructor para la clase padre con el metodo super()
+
+class Componente1 extends React.Component{
+	constructor(){
+		super()
+	}
+}
+
+Luego crearemos uno de los metodos principales "render()"{}, este metodo se encarga se mostrar el componente en el 
+flujo de la página, para crearlo escribirmos la palabra render sin parametros y en el cuerpo del metodo escribimos
+la palabra return luego abrimos un bloque con parentisis y en su interior definimos varios elementos html, es en esta
+seccion donde escribimos la estructura visual de componente:
+
+class Componente1 extends React.Component{
+	constructor(){
+		super()
+	}
+
+	render(){
+		return(
+			<div>
+				<span>Hola!, soy un componente</span>
+			</div>
+		)
+	}
+
+}
+
+Por ultimo indicamos, fuera de la clase, que este componente sera exportado, esto se hace para que podamos usar el componente
+desde otros archivos de la aplicacion:
+
+export default Componente1;
+
+Este es el resultado final del archivo Componente1.jsx:
+
+import React form 'react'
+
+class Componente1 extends React.Component{
+	constructor(){
+		super()
+	}
+
+	render(){
+		return(
+			<div>
+				<span>Hola!, soy un componente</span>
+			</div>
+		)
+	}
+
+}
+
+export default Componente1;
+
+2. Ahora se debe incorporar el componente al flujo de la aplicación, para ello abrimos el archivo main.js,
+primero importamos el archivo en el que creamos el componente, luego usamos el objeto ReactDOM con el parametro etiqueta html
+con el nombre del componente e indicamos el elemento html sobre el cual se debe renderizarlo.
+
+Para terminar ejecutamos:
+
+npm run start
+
+
+
+
+
+
+
+
+
+
